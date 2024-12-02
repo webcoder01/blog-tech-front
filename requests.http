@@ -1,0 +1,6 @@
+GET http://localhost:1337/api/posts?pagination[page]=1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer a2f973e6bf982b9ada99637cac4ad5777577e80610ade4a1f12a19fc90920010ca55b2b1b4513743048505951d0956814f7228a1c3499d8a7cabe24e8c877520cc0500d27f4818d0b55e8ce4bf838761cdec7489c68a82116a788d89e2d6435e4f5090a707b1e3cbee9aa911b84bd05b01e8fde8992e350129a08862966e4271
+
+###
