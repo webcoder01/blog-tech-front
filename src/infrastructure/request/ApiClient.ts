@@ -24,6 +24,6 @@ export class ApiClient implements ApiClientInterface {
   }
 
   private getUriWithPagination(url: string, page: number): string {
-    return `${process.env.API_URL}${url}?pagination[page]=${page}`;
+    return `${process.env.API_URL}${url}?pagination[page]=${page}&pagination[pageSize]=10`;
   }
 }

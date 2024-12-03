@@ -23,7 +23,7 @@ describe("ApiClient", () => {
     await apiClient.getCollectionByPage("/resources", 1);
 
     expect(fetch).toHaveBeenCalledWith(
-      "http://localhost:1337/api/resources?pagination[page]=1",
+      "http://localhost:1337/api/resources?pagination[page]=1&pagination[pageSize]=10",
       {
         method: "GET",
         headers: {
