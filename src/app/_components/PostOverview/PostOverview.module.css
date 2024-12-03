@@ -1,0 +1,41 @@
+.article {
+    display: flex;
+    flex-direction: column;
+    padding: 0.8rem;
+    background: #dfe2d7;
+    border-radius: var(--radius);
+}
+
+.title {
+    margin: 0 0 1rem 0;
+}
+
+.content {
+    max-height: 8.5rem;
+    overflow: hidden;
+}
+
+.footer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--secondary-color);
+    margin-top: 2rem;
+}
+
+.button {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.button:hover svg {
+    transform: translateX(5px);
+    transition: transform 0.1s linear;
+}

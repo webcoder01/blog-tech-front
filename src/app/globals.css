@@ -2,4 +2,25 @@ html,
 body {
   margin: 0;
   padding: 0;
+  font-size: 16px;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: #fefae0;
+}
+
+h1, h2, div, p, span, section, footer {
+  box-sizing: border-box;
+}
+
+h2 {
+  font-size: 1.3rem;
+}
+
+:root {
+  --primary-color: #bc6c25;
+  --secondary-color: #606c38;
+  --radius: 10px;
 }
