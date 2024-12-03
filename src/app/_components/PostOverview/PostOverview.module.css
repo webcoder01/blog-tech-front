@@ -1,6 +1,7 @@
 .article {
     display: flex;
     flex-direction: column;
+    max-width: 30rem;
     padding: 0.8rem;
     background: #dfe2d7;
     border-radius: var(--radius);
