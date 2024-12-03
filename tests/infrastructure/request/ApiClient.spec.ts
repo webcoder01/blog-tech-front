@@ -1,14 +1,17 @@
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { ApiClient } from "@/infrastructure/request/ApiClient";
 
+const mockJsonApiResponse = vi.fn();
+
 global.fetch = vi.fn().mockResolvedValue({
   ok: true,
-  json: vi.fn().mockResolvedValue({ data: { key: "value" } }),
+  json: mockJsonApiResponse,
 });
 
 describe("ApiClient", () => {
   const originalEnv = { ...process.env };
   beforeEach(() => {
+    mockJsonApiResponse.mockResolvedValue({ data: [{ key: "value" }] });
     process.env.API_URL = "http://localhost:1337/api";
     process.env.API_TOKEN = "api_token";
   });
@@ -18,7 +21,40 @@ describe("ApiClient", () => {
     vi.clearAllMocks();
   });
 
-  test("getCollectionByPage() should calls fetch with GET method and expected headers", async () => {
+  test("findResource() should call fetch with GET method and expected headers", async () => {
+    const apiClient = new ApiClient();
+    await apiClient.findResource("/resource?key=value");
+
+    expect(fetch).toHaveBeenCalledWith(
+      "http://localhost:1337/api/resource?key=value",
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: "Bearer api_token",
+        },
+      },
+    );
+  });
+
+  test("findResource() should return resource when api response is OK and resource exists", async () => {
+    const apiClient = new ApiClient();
+    const resource = await apiClient.findResource("/resource?key=value");
+
+    expect(resource).toStrictEqual({ key: "value" });
+  });
+
+  test("findResource() should return null when api response is OK and resource is not found", async () => {
+    mockJsonApiResponse.mockResolvedValue({ data: [] });
+
+    const apiClient = new ApiClient();
+    const resource = await apiClient.findResource("/resource?unknown=value");
+
+    expect(resource).toBeNull();
+  });
+
+  test("getCollectionByPage() should call fetch with GET method and expected headers", async () => {
     const apiClient = new ApiClient();
     await apiClient.getCollectionByPage("/resources", 1);
 
@@ -35,10 +71,10 @@ describe("ApiClient", () => {
     );
   });
 
-  test("getCollectionByPage() should returns data when there api response status is OK", async () => {
+  test("getCollectionByPage() should return data when api response status is OK", async () => {
     const apiClient = new ApiClient();
     const data = await apiClient.getCollectionByPage("/resources", 1);
 
-    expect(data).toStrictEqual({ key: "value" });
+    expect(data).toStrictEqual([{ key: "value" }]);
   });
 });

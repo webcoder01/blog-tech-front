@@ -1,18 +1,14 @@
 import Markdown from "react-markdown";
 import { BiRightArrowAlt } from "react-icons/bi";
 import styles from "./PostOverview.module.css";
-
-interface PostOverviewProps {
-  title: string;
-  content: string;
-  publishedAt: string;
-}
+import { PostApiResponse } from "@/infrastructure/request/PostRequest";
 
 export function PostOverview({
+  slug,
   title,
   content,
   publishedAt,
-}: PostOverviewProps) {
+}: Omit<PostApiResponse, "documentId">) {
   return (
     <article className={styles.article}>
       <h2 className={styles.title}>{title}</h2>
@@ -23,7 +19,7 @@ export function PostOverview({
         <span>
           Publié le <time dateTime={publishedAt}>{publishedAt}</time>
         </span>
-        <a className={styles.button} href="">
+        <a className={styles.button} href={`/articles/${slug}`}>
           Lire l&#39;article <BiRightArrowAlt size={20} />
         </a>
       </footer>
