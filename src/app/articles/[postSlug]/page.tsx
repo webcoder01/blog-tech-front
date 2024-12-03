@@ -4,6 +4,7 @@ import {
 } from "@/infrastructure/request/PostRequest";
 import { ApiClient } from "@/infrastructure/request/ApiClient";
 import { notFound } from "next/navigation";
+import { PostWidget } from "@/app/articles/[postSlug]/_components/PostWidget/PostWidget";
 
 interface PageParams {
   params: {
@@ -23,5 +24,12 @@ export default async function Page({ params }: PageParams) {
     notFound();
   }
 
-  return <p>Article found !</p>;
+  return (
+    <PostWidget
+      title={post.title}
+      content={post.content}
+      publishedAt={post.publishedAt}
+      updatedAt={post.updatedAt}
+    />
+  );
 }

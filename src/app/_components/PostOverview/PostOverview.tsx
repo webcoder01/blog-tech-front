@@ -8,7 +8,7 @@ export function PostOverview({
   title,
   content,
   publishedAt,
-}: Omit<PostApiResponse, "documentId">) {
+}: Omit<PostApiResponse, "documentId" | "updatedAt">) {
   return (
     <article className={styles.article}>
       <h2 className={styles.title}>{title}</h2>
@@ -19,7 +19,7 @@ export function PostOverview({
         <span>
           Publié le <time dateTime={publishedAt}>{publishedAt}</time>
         </span>
-        <a className={styles.button} href={`/articles/${slug}`}>
+        <a className="link" href={`/articles/${slug}`}>
           Lire l&#39;article <BiRightArrowAlt size={20} />
         </a>
       </footer>

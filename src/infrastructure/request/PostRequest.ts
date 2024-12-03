@@ -6,6 +6,7 @@ export interface PostApiResponse {
   title: string;
   content: string;
   publishedAt: string;
+  updatedAt: string;
 }
 
 export interface PostRequestInterface {

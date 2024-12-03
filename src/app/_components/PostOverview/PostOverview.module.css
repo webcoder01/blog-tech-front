@@ -26,17 +26,3 @@
     color: var(--secondary-color);
     margin-top: 2rem;
 }
-
-.button {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    color: var(--primary-color);
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.button:hover svg {
-    transform: translateX(5px);
-    transition: transform 0.1s linear;
-}

@@ -15,8 +15,31 @@ h1, h2, div, p, span, section, footer {
   box-sizing: border-box;
 }
 
+h1 {
+  font-size: 1.5rem;
+}
+
 h2 {
   font-size: 1.3rem;
+}
+
+.link {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  color: var(--primary-color);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link:hover svg {
+  transform: translateX(5px);
+  transition: transform 0.1s linear;
+}
+
+.link.icon-left:hover svg {
+  transform: translateX(-5px);
+  transition: transform 0.1s linear;
 }
 
 :root {
