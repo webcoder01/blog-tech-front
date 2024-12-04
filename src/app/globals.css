@@ -20,7 +20,7 @@ h1, h2, div, p, span, section, footer {
 /* > Layout */
 .container {
   padding: 0.5rem;
-  max-width: 30rem;
+  max-width: var(--container-max-width);
   margin: auto;
 }
 /* < Layout */
@@ -68,6 +68,7 @@ button {
 
 :root {
   --color-error: #ee6055;
+  --container-max-width: 40rem;
   --primary-color: #bc6c25;
   --secondary-color: #606c38;
   --bright-color: #fefae0;
