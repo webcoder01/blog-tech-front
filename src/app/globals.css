@@ -1,3 +1,4 @@
+/* > Globals */
 html,
 body {
   margin: 0;
@@ -14,7 +15,17 @@ body {
 h1, h2, div, p, span, section, footer {
   box-sizing: border-box;
 }
+/* < Globals */
 
+/* > Layout */
+.container {
+  padding: 0.5rem;
+  max-width: 30rem;
+  margin: auto;
+}
+/* < Layout */
+
+/* > Titles */
 h1 {
   font-size: 1.5rem;
 }
@@ -22,7 +33,9 @@ h1 {
 h2 {
   font-size: 1.3rem;
 }
+/* < Titles */
 
+/* > Link */
 .link {
   display: flex;
   flex-flow: row nowrap;
@@ -41,6 +54,7 @@ h2 {
   transform: translateX(-5px);
   transition: transform 0.1s linear;
 }
+/* < Link */
 
 :root {
   --primary-color: #bc6c25;

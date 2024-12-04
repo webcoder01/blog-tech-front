@@ -11,7 +11,7 @@ export function PostWidget({
   updatedAt,
 }: Omit<PostApiResponse, "documentId" | "slug">) {
   return (
-    <main className={styles.main}>
+    <main className="container">
       <a className="link icon-left" href="/">
         <BiLeftArrowAlt size={20} />
         Revenir aux articles

@@ -1,4 +1,5 @@
 import Markdown from "react-markdown";
+import styles from "./LegalNotice.module.css";
 
 interface LegalNoticeProps {
   content: string;
@@ -6,9 +7,9 @@ interface LegalNoticeProps {
 
 export function LegalNotice({ content }: LegalNoticeProps) {
   return (
-    <main>
+    <main className="container">
       <h1>Mentions légales</h1>
-      <section>
+      <section className={styles.section}>
         <Markdown>{content}</Markdown>
       </section>
     </main>
