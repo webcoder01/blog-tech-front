@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Spectral } from "next/font/google";
 import { Footer } from "@/app/_components/Footer/Footer";
+import { Header } from "@/app/_components/Header/Header";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,8 +23,8 @@ export default async function RootLayout({
   return (
     <html lang="fr" className={spectralFont.className}>
       <body>
+        <Header />
         {children}
-
         <Footer />
       </body>
     </html>

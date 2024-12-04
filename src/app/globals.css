@@ -35,6 +35,16 @@ h2 {
 }
 /* < Titles */
 
+/* > Buttons */
+button {
+  background: transparent;
+  border: none;
+  border-radius: var(--radius);
+  margin: 0;
+  padding: 0.5rem;
+}
+/* < Buttons */
+
 /* > Link */
 .link {
   display: flex;
@@ -60,6 +70,6 @@ h2 {
   --primary-color: #bc6c25;
   --secondary-color: #606c38;
   --bright-color: #fefae0;
-  --radius: 10px;
+  --radius: 5px;
   --breakpoint-sm: 750px;
 }

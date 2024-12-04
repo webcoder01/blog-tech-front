@@ -1,0 +1,73 @@
+.header {
+    padding: 0.5rem 1rem 2rem 1rem;
+    margin-bottom: 2rem;
+    background: #fefbe6;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 6px -1px, rgba(0, 0, 0, 0.06) 0 2px 4px -1px;
+}
+
+.headerContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    max-width: 30rem;
+    margin: auto;
+}
+
+.welcome {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.introducing {
+    margin: 0;
+    font-size: 14px;
+    max-width: 20em;
+}
+
+.list {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    background: var(--bright-color);
+    list-style-type: none;
+}
+
+.listOpen {
+    display: block;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 30rem;
+    margin: auto;
+}
+
+.menuAction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.closeList {
+    align-self: flex-end;
+}
+
+.listTabLink {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+}
