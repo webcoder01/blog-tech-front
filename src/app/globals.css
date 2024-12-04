@@ -45,5 +45,7 @@ h2 {
 :root {
   --primary-color: #bc6c25;
   --secondary-color: #606c38;
+  --bright-color: #fefae0;
   --radius: 10px;
+  --breakpoint-sm: 750px;
 }

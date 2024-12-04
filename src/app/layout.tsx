@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Spectral } from "next/font/google";
+import { Footer } from "@/app/_components/Footer/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,14 +14,18 @@ const spectralFont = Spectral({
   weight: ["400", "500", "700"],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="fr" className={spectralFont.className}>
-      <body>{children}</body>
+      <body>
+        {children}
+
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -1,0 +1,30 @@
+.footer {
+    background: #283618;
+    margin-top: 2rem;
+    padding: 1rem 0.5rem 2rem 0.5rem;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    @media screen and (min-width: 750px) {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+}
+
+.link {
+    color: var(--bright-color);
+    text-decoration: none;
+}
+
+.link:hover {
+    text-decoration: underline;
+}

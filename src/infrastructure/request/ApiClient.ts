@@ -1,6 +1,7 @@
 export interface ApiClientInterface {
   findResource<T>(url: string): Promise<T | null>;
   getCollectionByPage<T>(url: string, page: number): Promise<T>;
+  getResource<T>(url: string): Promise<T>;
 }
 
 export class ApiClient implements ApiClientInterface {
@@ -23,6 +24,21 @@ export class ApiClient implements ApiClientInterface {
   async getCollectionByPage<T>(url: string, page: number): Promise<T> {
     const uri = this.getUriWithPagination(url, page);
     const response = await fetch(uri, {
+      method: "GET",
+      headers: { ...this.getDefaultHeaders() },
+    });
+
+    if (response.ok) {
+      const responseData: { data: T } = await response.json();
+
+      return responseData.data;
+    }
+
+    throw new Error("Api error");
+  }
+
+  async getResource<T>(url: string): Promise<T> {
+    const response = await fetch(this.getUri(url), {
       method: "GET",
       headers: { ...this.getDefaultHeaders() },
     });

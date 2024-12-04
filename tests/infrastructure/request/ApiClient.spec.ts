@@ -77,4 +77,26 @@ describe("ApiClient", () => {
 
     expect(data).toStrictEqual([{ key: "value" }]);
   });
+
+  test("getResource() should call fetch with GET method and expected headers", async () => {
+    const apiClient = new ApiClient();
+    await apiClient.getResource("/resource");
+
+    expect(fetch).toHaveBeenCalledWith("http://localhost:1337/api/resource", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        Authorization: "Bearer api_token",
+      },
+    });
+  });
+
+  test("getResource() should return resource when api response status is OK", async () => {
+    mockJsonApiResponse.mockResolvedValue({ data: { key: "value" } });
+    const apiClient = new ApiClient();
+    const data = await apiClient.getResource("/resource");
+
+    expect(data).toStrictEqual({ key: "value" });
+  });
 });
