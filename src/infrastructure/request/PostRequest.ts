@@ -4,6 +4,7 @@ export interface PostApiResponse {
   documentId: string;
   slug: string;
   title: string;
+  description: string;
   content: string;
   publishedAt: string;
   updatedAt: string;

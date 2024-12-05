@@ -9,7 +9,7 @@ export function PostWidget({
   content,
   publishedAt,
   updatedAt,
-}: Omit<PostApiResponse, "documentId" | "slug">) {
+}: Omit<PostApiResponse, "documentId" | "slug" | "description">) {
   return (
     <main className="container">
       <a className="link icon-left" href="/">

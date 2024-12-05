@@ -10,12 +10,12 @@ interface PostsListProps {
 export function PostsList({ posts }: PostsListProps) {
   return (
     <section className={styles.section}>
-      {posts.map(({ documentId, slug, title, content, publishedAt }) => (
+      {posts.map(({ documentId, slug, title, description, publishedAt }) => (
         <PostOverview
           key={documentId}
           slug={slug}
           title={title}
-          content={content}
+          description={description}
           publishedAt={PostDateUtil.getReadableFormat(publishedAt)}
         />
       ))}

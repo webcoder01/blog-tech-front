@@ -1,20 +1,17 @@
-import Markdown from "react-markdown";
 import { BiRightArrowAlt } from "react-icons/bi";
-import styles from "./PostOverview.module.css";
 import { PostApiResponse } from "@/infrastructure/request/PostRequest";
+import styles from "./PostOverview.module.css";
 
 export function PostOverview({
   slug,
   title,
-  content,
+  description,
   publishedAt,
-}: Omit<PostApiResponse, "documentId" | "updatedAt">) {
+}: Omit<PostApiResponse, "documentId" | "content" | "updatedAt">) {
   return (
     <article className={styles.article}>
       <h2 className={styles.title}>{title}</h2>
-      <div className={styles.content}>
-        <Markdown>{content}</Markdown>
-      </div>
+      <div>{description}</div>
       <footer className={styles.footer}>
         <span>
           Publié le <time dateTime={publishedAt}>{publishedAt}</time>
